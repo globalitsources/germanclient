@@ -1,0 +1,21 @@
+.logo-carousel {
+  display: flex;
+  overflow: visible;
+  position: relative;
+
+  &__slide {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    padding: 20px;
+    align-items: center;
+    transition: all 0.7s;
+    filter: grayscale(100%);
+    &:hover {
+      filter: none;
+    }
+  }
+  &__img {
+    width: 140px;
+  }
+}

@@ -1,0 +1,197 @@
+<template>
+
+  <!-- ThePager -->
+
+  <NuxtLink
+    class="flat-item"
+    :to="`/monteurzimmer/${this.getTranslateUrl(
+      townObject.name.toLowerCase() || this.$route.params.city
+    )}/${encodeURIComponent(flat.Artikel_Nr)}`"
+  >
+
+    <KeepAlive>
+      
+
+	<div v-if="isMobile" class="flat-item__image">
+
+
+        <TheSwiper>
+         <div class="swiper-slide" v-for="(img, index) in flat.images" :key="index" :id="`slide-${index}`">
+          
+
+
+
+
+
+<!--            <img -->
+<!--                draggable="false" -->
+<!--                :src="`https://storage.slave.zimmer-im-revier.de/cwh/340x340${img}`" -->
+<!--                :alt="`${flat.city} monteurzimmer: ${flat.title}`" loading="eager" -->
+<!--            / -->
+
+
+
+            <!--                :src-placeholder="`/assets/images/ajax-loader.gif`"-->
+            <v-lazy-image 
+                :src="`https://storage.slave.zimmer-im-revier.de/cwh/460x460${img}`" 
+                :alt="`${flat.city} monteurzimmer: ${flat.title}`"
+		loading="lazy"
+                src-placeholder="https://maps.gstatic.com/mapfiles/transparent.png"
+            />
+
+
+	</div>
+        </TheSwiper>
+
+
+
+
+
+      </div>
+
+      <div v-else class="flat-item__image">
+        <img
+          :alt="`Monteurzimmer in ${townObject.name}`"
+          v-show="flat.image"
+          :src="`https://storage.slave.zimmer-im-revier.de/cwh/400x266${flat.image}`"
+          loading="lazy"
+        />
+      </div>
+
+
+    </KeepAlive>
+
+    <div class="flat-item__info">
+
+      <strong class="title"> {{ townObject.name ?  `Monteurzimmer in ${townObject.name}` : '' }}</strong>    
+
+
+
+
+  <span class="locality"
+        >{{ flat.district_code }} {{ flat.city }}
+        {{ flat.street_name }}
+      </span>
+      <div v-if="flat.people_to == 1" class="flat-item__persons">
+        {{ flat.people_from }}
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <div
+        v-if="flat.people_to !== flat.people_from"
+        class="flat-item__persons"
+      >
+        {{ flat.people_from }}-{{ flat.people_to }}
+        <i class="fa-solid fa-users"></i>
+      </div>
+    </div>
+
+    <div class="flat-item__services services">
+
+      <div class="services__wrapper" v-if="austattungsbeschreibung.length">
+        <p class="services__title">Ausstattung</p>
+        <ul class="services__list">
+          <li
+            :title="icon"
+            class="services__icon"
+            v-for="(icon, index) in austattungsbeschreibung"
+            :key="index"
+          >
+            <i :class="`fa-solid ${austattungsbeschreibungIcons[icon]}`"></i>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="flat-item__price">
+      <strong> pro Pers. / Nacht </strong>
+      <span v-if="flat.stabu == 0" class="price-text">
+        ab
+        {{ flat.price_to }} €
+      </span>
+      <span v-if="flat.stabu == 1" class="price-text pl-0">auf Anfrage</span>
+    </div>
+
+  </NuxtLink>
+  <!-- /ThePager -->
+</template>
+<script>
+import { replaceTranslit } from "~/service/helpers/helpers";
+import TheSwiper from "~/components/UI/TheSwiper.vue";
+import VLazyImage from "v-lazy-image/v2";
+// import ThePager from "~/components/UI/ThePager.vue";
+
+function isMobileDevice() {
+  return /Mobi|Android/i.test(navigator.userAgent);
+}
+
+export default {
+  name: "flatItem",
+  components: {TheSwiper, VLazyImage},
+  props: {
+    flat: {
+      required: true,
+    },
+    townObject: {
+      required: true,
+    },
+  },
+
+  data() {
+    return {
+      austattungsbeschreibungIcons: {
+        "Appartement": "fa-apartment",
+        "Badewanne": "fa-bath",
+        "Dusche": "fa-shower",
+        "Küche/Küchenzeile": "fa-oven",
+        "Küche": "fa-oven",
+        "Küchenzeile": "fa-oven",
+        "Nichtraucher": "fa-ban-smoking",
+        "nur kleine Kochgelegenheit": "fa-kitchen-set",
+        "Parkplatz nur für Pkw": "fa-garage-car",
+        "Privatparkplatz": "fa-circle-parking",
+        "Raucher": "fa-smoking",
+        "Rauchen nur am offenen Fenster": "fa-smoking",
+        "rollstuhlgeeignet": "fa-wheelchair",
+        "ruhig gelegen": "fa-snooze",
+        "Tiere erlaubt": "fa-dog",
+        "TV": "fa-tv",
+        "WLAN": "fa-wifi",
+        "Mehrbettzimmer": "fa-bed-bunk",
+        "Trockner": "fa-dryer-heat",
+        "Spülmaschine": "fa-tank-water",
+        "Waschmaschine": "fa-tablet-screen",
+        "Waschservice": "fa-shirt",
+        "Zustellbett": "fa-bed-empty",
+        "Balkon/Terrasse": "fa-umbrella-beach",
+        "DG": "fa-people-roof",
+        "EG": "fa-people-line",
+        "EZ": "fa-square-user",
+        "Für Privatgäste geeignet": "fa-person-walking-luggage",
+        "Mehrere Schlafräume": "fa-warehouse-full",
+        "Doppelbett": "fa-bed-front",
+        "Gute Einkaufsmöglichkeiten": "fa-cart-shopping",
+        "Optimale Verkehrsanbindung": "fa-bus",
+        "Eigenes Bad": "fa-bed",
+        "Fahrradkeller": "fa-bicycle",
+        "Wohnung": "fa-apartment",
+        "Backofen": "fa-oven",
+      },
+      austattungsbeschreibung: false,
+	isMobile: isMobileDevice(),
+    };
+  },
+  created() {
+    try {
+	const results = this.flat.Eigenschaften;
+      	if (results && results.length > 0) {
+        	this.austattungsbeschreibung = results;
+      	}
+    } catch (err) {}
+  },
+  methods: {
+    getTranslateUrl(string) {
+      return replaceTranslit(string);
+    },
+  },
+};
+</script>

@@ -1,0 +1,67 @@
+.apartments {
+  display: grid;
+  padding: 3rem 1rem 1rem 1rem;
+  margin: 0 auto;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 20px;
+  column-gap: 20px;
+  &__card {
+    height: 260px;
+    position: relative;
+    color: $white;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+  &__title {
+    font-size: 1.3rem;
+    padding: 10px 0 0 10px;
+    font-weight: 700;
+    text-align: left;
+  }
+  &__text {
+    & p{
+      font-size: 0.6rem;
+      padding: 0.7rem;
+      align-self: flex-end;
+      width: 100%;
+      text-align: right;
+      background: rgba(236, 166, 52, 0.8);
+    }
+    & strong {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.apartments__content-appartements {
+  background: url("@/assets/images/apartments/Appartements.webp") no-repeat
+    center center;
+  background-size: cover;
+}
+.apartments__content-einzelzimmer {
+  background: url("@/assets/images/apartments/Einzelzimmer.webp") no-repeat
+    center center;
+  background-size: cover;
+}
+.apartments__content-langzeitbuchung {
+  background: url("@/assets/images/apartments/Langzeitbuchung.webp") no-repeat
+    center center;
+  background-size: cover;
+}
+
+@media (max-width: 767px) {
+  .apartments {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+

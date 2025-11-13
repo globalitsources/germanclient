@@ -1,0 +1,17 @@
+.headline {
+  padding: 1rem;
+  color: $brand-primary;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    align-items: center;
+    text-align: center;
+  }
+  &__icon {
+    & i {
+      font-size: 4rem;
+    }
+  }
+}

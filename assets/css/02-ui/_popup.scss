@@ -1,0 +1,89 @@
+.popup {
+  
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  &__wrapper {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 0.3rem;
+    padding: 1rem;
+    background: #fff;
+    position: absolute;
+    top: 20%;
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+  }
+  &__button {
+    cursor: pointer;
+    fill: $brand-tertiary;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+}
+.popup.open {
+  opacity: 1;
+  visibility: visible;
+  .popup__wrapper {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.phone-modal {
+  &__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  &__header {
+    display: flex;
+    font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    padding: 1rem;
+    color: $brand-primary;
+    border-bottom: 1px solid $gray-200;
+  }
+  &__body {
+    padding-top: 1.5rem;
+    flex: 1 1 auto;
+  }
+
+  &__link {
+    display: block;
+    font-weight: 800;
+    color: #c5003e;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    &:hover {
+      text-decoration: underline;
+      color: $yellow;
+    }
+  }
+}
+
+@media(max-width: 575px){
+  .popup{
+    &__wrapper{
+      max-width: 93%;
+      margin: 0 1rem;
+    }
+  }
+}

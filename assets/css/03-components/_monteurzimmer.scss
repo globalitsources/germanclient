@@ -1,0 +1,71 @@
+.monteurzimmer {
+  background-color: $brand-tertiary-light;
+  border: none;
+  text-align: center;
+  position: relative;
+  margin: 1rem 0 2rem 0;
+  &:last-child {
+    border: none;
+  }
+  &__title {
+    color: $white;
+    font-weight: 800;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  &__fields {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
+  &__field {
+    flex: 0 0 calc(25% - 1rem);
+    position: relative;
+    background: $white;
+    border-radius: 0.25rem;
+    height: 100%;
+  }
+  &__submit {
+    cursor: pointer;
+    border-radius: 0.25rem;
+    border: none;
+    width: 100%;
+    height: 45px;
+    background: $brand-secondary;
+    font-weight: 700;
+    color: $white !important;
+    font-size: 1.5rem;
+    &:hover,
+    &:focus {
+      outline: none;
+      background-color: $yellow;
+      text-decoration: underline;
+    }
+  }
+  &__select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $gray-700;
+  }
+}
+
+@media (max-width: 991px) {
+  .monteurzimmer {
+    &__field {
+      flex: 0 0 calc(50% - 1rem);
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .monteurzimmer {
+    &__field {
+      flex: 0 0 calc(100% - 1rem);
+    }
+  }
+}
+@media (max-width: 575px) {
+}

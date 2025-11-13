@@ -1,0 +1,53 @@
+.form {
+  font-family: serif;
+  padding: 0 1rem;
+  &__heading {
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+  }
+  &__legend {
+    margin: 1rem 0;
+    color: $brand-primary;
+    font-size: 1.2rem;
+  }
+  & h2 {
+    font-size: 1.4rem;
+  }
+}
+.form-group {
+  margin-top: 1rem;
+  .control-label {
+    margin-bottom: 5 px;
+    display: block;
+  }
+
+  .input {
+    width: 100%;
+  }
+  .form-control {
+    border-radius: 0.25rem;
+    padding: 5px;
+    border: 1px solid $gray-400;
+    width: 100%;
+  }
+  & .input.checkbox {
+    border: none;
+  }
+  & .add-on {
+    margin-right: 10px;
+  }
+  & span {
+    color: $gray-900;
+    font-size: 0.9rem;
+    line-height: 0.9rem;
+  }
+}
+.clearfix {
+  & a {
+    color: $brand-secondary;
+  }
+}
+
+#mc_embed_signup{
+  margin-top: 2em;
+}

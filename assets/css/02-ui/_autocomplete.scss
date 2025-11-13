@@ -1,0 +1,83 @@
+.autocomplete {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  position: relative;
+  &__input {
+    display: block;
+    cursor: text;
+    max-width: 350px;
+    height: 45px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid $gray-400;
+    border-radius: 0.25rem;
+    color: $gray-700;
+    padding-left: 60px;
+    &:hover,
+    &:focus {
+      outline: none;
+      border: 1px solid $brand-secondary;
+    }
+  }
+  &__field {
+    width: 100%;
+  }
+
+  &__icon {
+    position: absolute;
+    fill: $yellow;
+    top: 3px;
+    left: 5px;
+  }
+
+  &__submit {
+    display: block;
+    background-color: transparent;
+    border: 1px solid $brand-secondary;
+    border-radius: 0.25rem;
+    color: $brand-secondary;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 0 10px;
+    opacity: 0.65;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    &:hover,
+    &:focus {
+      outline: none;
+      opacity: 1;
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .autocomplete {
+    flex-direction: column;
+    width: 100%;
+    &__input {
+      max-width: 100%;
+    }
+    &__submit {
+      padding: 8px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .autocomplete {
+    flex-direction: column;
+    width: 100%;
+    &__input {
+      max-width: 100%;
+    }
+    &__submit {
+      padding: 8px;
+    }
+  }
+}

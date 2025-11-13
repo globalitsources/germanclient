@@ -1,0 +1,51 @@
+.select {
+  height: 45px;
+  text-align: center;
+  cursor: pointer;
+  color: black;
+  border-radius: 0.25rem;
+  border: 1px solid $gray-400;
+  .options {
+    position: absolute;
+    overflow-y: scroll;
+    top: 45px;
+    display: flex;
+    height: 350%;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0.25rem;
+    z-index: 40;
+  }
+  .option {
+    width: inherit;
+    padding: 0.3rem;
+    background: white;
+    color: $brand-tertiary;
+    &:hover,
+    :focus {
+      background: $brand-tertiary;
+      color: $white;
+    }
+  }
+  &__input--focus {
+    border: 2px solid $input-border;
+    box-shadow: 0px 0px 0px 2px rgb(255, 255, 255);
+    .select__accordion-icon {
+      position: absolute;
+      right: 15px;
+      transform: rotate(-90deg);
+    }
+  }
+  &__accordion-icon {
+    position: absolute;
+    right: 15px;
+    transform: rotate(-180deg);
+  }
+  &__icon {
+    fill: $yellow;
+    position: absolute;
+    left: 15px;
+  }
+}

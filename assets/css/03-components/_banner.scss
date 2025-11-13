@@ -1,0 +1,25 @@
+.banner {
+  height: 495px;
+  background-size: cover, 0 0;
+  background-position: center center;
+  margin-bottom: 1rem;
+  &__content {
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+  }
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $white;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .banner {
+    &__title {
+      font-size: 1.7rem;
+    }
+  }
+}

@@ -1,0 +1,394 @@
+<template lang="">
+
+
+    <div class="realty-list" v-if="this.$route.path !== '/monteurzimmer/' && this.$route.path !== '/monteurzimmer' && this.city">
+
+
+        <div v-if="!this.realtyAll" class="h3--red center flat-list--empty">
+
+
+
+
+<div class="found-mobile" style="position:absolute;top:0;">
+
+                <div class="hl"><a href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></a></div>
+
+
+
+                <div class="filter-button" style="float:right !important;">
+                  <a href="#search"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></a>
+                </div>
+
+            </div>
+
+		<br>
+
+
+
+            Nichts&nbsp;gefunden
+            <NoSearchResults />
+        </div>
+        <EstateGetintouch v-if="this.realtyAll" />
+        <EstateOpenCard />
+
+
+        <div class="frame realty__info" v-if="this.realtyAll">
+            <h2 class="found">
+                Ihre Übernachtungs­möglichkeiten ({{ this.realtyAll.length }} Angebote)
+                {{ this.city ? `in ${this.city.charAt(0).toUpperCase()+this.city.slice(1)}` : ''  }}
+            </h2>
+            <div class="found-mobile">
+
+                <div class="hl"><a href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></a></div>
+
+                <h2>
+                  {{ this.realtyAll.length }} Angebote in<br>{{ this.city ? `${this.city.charAt(0).toUpperCase()+this.city.slice(1)}` : ''  }}
+                </h2>
+
+                <div class="filter-button">
+                  <a href="#search"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></a>
+                </div>
+
+            </div>
+            <p class="lastupdate text--gray" v-if="updateTime">
+                Letzte Aktualisierung: {{ updateTime }}
+            </p>
+        </div>
+
+
+        <div class="flat__container">
+          <div class="flat__map-wrapper">
+            <div id="map" class="flat__map" :style="{height: clientScreen ? clientScreen : '600px',}"></div>
+          </div>
+        </div>
+
+        <div class="splash"></div>
+
+        <div class="list-container" :style="{height: clientScreen ? clientScreen : '100%',}">
+            <div class="q1 flat-list frame" ref="realtyList">
+                <flatItem
+                    v-for="(flat, index) in realtyParted"
+                    :key="index"
+                    v-bind:flat="flat"
+                    v-bind:townObject="
+                        dictionaryOrte.length > 0
+                            ? dictionaryOrte.find((item) => item?.name?.toLowerCase().trim() == flat?.city?.toLowerCase().trim())
+                            : { name: ' '}
+                    "
+                />
+            </div>
+        </div>
+    </div>
+    <div class="realty-map" v-else>
+
+
+
+        <EstateGetintouch />
+        <EstateOpenCard />
+
+        <div class="flat__container">
+          <div class="flat__map-wrapper">
+            <div id="map" class="flat__map" ref="realtyList" :style="{height: clientScreen ? clientScreen : '600px',}"></div>
+          </div>
+        </div>
+
+        <EstateCitiesAz />
+
+    </div>
+</template>
+
+<script>
+import NoSearchResults from "../NoSearchResults.vue";
+import TheAutocomplete from "../UI/TheAutocomplete.vue";
+import TheAccordion from "../UI/TheAccordion.vue";
+import getDictionary from "~/utils/getDictionary";
+import { loadMapLibrary } from "~/service/helpers/helpers";
+import getRealtyAll from "~/utils/getRealtyAll";
+import {imageMeta} from "@nuxt/image/dist/runtime/utils/meta";
+import axios from "axios";
+//import EstateCitiesAz from "~/components/apiContent/estateCitiesAz.vue";
+
+export default {
+  components: { TheAccordion, NoSearchResults },
+  mixins: [TheAutocomplete],
+  data() {
+    return {
+      realtyAll: this.$store.state.counter.realtyList,
+      realtyList: this.$refs.realtyList,
+      realtyParted: [],
+      realtyCount: 0,
+      page: 1,
+      totalPages: this.$store.state.counter.totalPages,
+      dictionaryOrte: this.$store.state.dictionaryOrte,
+      updateTime: this.$store.state.counter.lastUpdate,
+      clientScreen: this.$store.state.counter.clientHeight,
+      scrollTop: this.$store.state.counter.scrollTop,
+      city: this.$store.state.counter.search.city,
+      latitude: this.$store.state.counter.search.latitude,
+      longitude: this.$store.state.counter.search.longitude,
+      radius: this.$store.state.counter.search.radius,
+      min_persons: this.$store.state.counter.search.min_persons,
+      max_persons: this.$store.state.counter.search.max_persons,
+    };
+  },
+  watch: {
+    "$store.state.counter.realtyList": {
+      handler: function (newRealtyList, oldRealtyList) {
+	      this.realtyAll = newRealtyList;
+        this.page = 1;
+this.realtyParted = this.getItemsToShowParted();
+        if (newRealtyList && newRealtyList.length > 0) {
+          this.pagination(newRealtyList.length);
+          if (this.city !== '' && this.city !== null) {
+            loadMapLibrary().then(() => this.initMapFiltered());
+          }
+        }
+      },
+    },
+  },
+  // SSR load city translation
+  async fetch() {
+    let res = await getDictionary("https://api.slave.zimmer-im-revier.de/city/");
+    this.dictionaryOrte = res.data.data;
+    this.$store.commit("dictionaryOrte/setDictionaryOrte", res.data.data);
+  },
+  activated() {
+    document.addEventListener("scroll", this.scrollHandler);
+  },
+  deactivated() {
+    document.removeEventListener("scroll", this.scrollHandler);
+  },
+  beforeMount() {
+    // console.log('this: ', this);
+  },
+  mounted() {
+    document.addEventListener("scroll", this.scrollHandler);
+    // document.onreadystatechange = () => {
+    //   if (document.readyState === "complete") {
+    //     loadMapLibrary().then(() => this.initMap());
+    //   }
+    // }
+    // console.log('====> ', this.realtyAll.length);
+    //loadMapLibrary().then(() => this.initMap());
+
+    if (this.city === '' || this.city === null) {
+      loadMapLibrary().then(() => this.initMapAll());
+    } else {
+      loadMapLibrary().then(() => this.initMapFiltered());
+    }
+  },
+  beforeDestroy() {
+    document.removeEventListener("scroll", this.scrollHandler);
+  },
+  methods: {
+    formatPrice(value) {
+      let val = (value/1).toFixed(2).replace('.', ',')
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+    },
+    mkitem(data) {
+      // console.log(data);
+      let html = '<a href="/monteurzimmer/'+data.city+'/'+data.Artikel_Nr+'"><div>';
+      // if(data.Title !== '') {
+      //   html = html + '<h2>' + data.Title + '</h2>';
+      // }
+      if(data.image !== '') {
+        //html = html + '<div class="im" style="background-image:url(https://storage.slave.zimmer-im-revier.de/cwh/220x130' + data.image + ');"></div><br style="border:none;"/>';
+        html = html + '<img src="https://storage.slave.zimmer-im-revier.de/cwh/200x110' + data.image + '"><br /><br />';
+      }
+      if(
+          (data.people_from && parseInt(data.people_from) > 0)
+          &&
+          (data.people_to && parseInt(data.people_to) > 0)
+      ) {
+        if(data.people_to === data.people_from) {
+          html = html + '<h2>' + data.people_from + ' Pers. ' + (parseInt(data.size) > 0 ? '(' + data.size + ' m<sup>2</sup>)' : '') + '</h2>';
+        } else {
+          html = html + '<h2>ab ' + data.people_from + ' - bis ' + data.people_to + ' Pers. ' + (parseInt(data.size) > 0 ? '(' + data.size + ' m<sup>2</sup>)' : '') + '</h2>';
+        }
+      } else {
+        if(data.people_from && parseInt(data.people_from) > 0) {
+          html = html + '<h2>ab ' + data.people_from + ' Pers. ' + (parseInt(data.size) > 0 ? '(' + data.size + ' m<sup>2</sup>)' : '') + '</h2>';
+        }
+        if(data.people_to && parseInt(data.people_to) > 0) {
+          html = html + '<h2>bis ' + data.people_to + ' Pers. ' + (parseInt(data.size) > 0 ? '(' + data.size + ' m<sup>2</sup>)' : '') + '</h2>';
+        }
+      }
+      if(
+          (data.price_from && parseInt(data.price_from) > 0)
+          &&
+          (data.price_to && parseInt(data.price_to) > 0)
+      ) {
+        if(data.price_to === data.price_from) {
+          html = html + '<h3>' + this.formatPrice(data.price_from) + ' &euro;</h3>';
+        } else {
+          html = html + '<h3>ab ' + this.formatPrice(data.price_to) + ' &euro; - bis ' + this.formatPrice(data.price_from) + ' &euro;</h3>';
+        }
+      } else {
+        if(data.price_to && parseInt(data.price_to) > 0) {
+          html = html + '<h3>ab ' + this.formatPrice(data.price_to) + ' &euro;</h3>';
+        } else if(data.price_from && parseInt(data.price_from) > 0) {
+          html = html + '<h3>bis ' + this.formatPrice(data.price_from) + ' &euro;</h3>';
+        } else {
+          html = html + '<h3>Preis auf Anfrage</h3>';
+        }
+      }
+      html = html + '</div></a>';
+      return html;
+    },
+    initMapFiltered() {
+      const hoverMarkerImagePath =
+          "https://be.staging.zir.bogatyrev.de/typo3conf/ext/sg_sitepackage/Resources/Public/Assets/Images/gmaps-marker-selected-big.png";
+      let center = null;
+      center = new google.maps.LatLng(
+          parseFloat(51.214906165701436),
+          parseFloat(9.822933589357387)
+      );
+      const bounds = new google.maps.LatLngBounds();
+      //bounds.extend(center);
+      const map = new google.maps.Map(document.getElementById("map"), {
+        center: center,
+        mapTypeControl: false,
+        fullscreenControl: false,
+        showInfoWindow: true,
+        mapId: 'all_acomodations_filtered',
+        async: true
+      });
+      let markers = [];
+      for(let i = 0; i < this.realtyAll.length; i++) {
+        const latitude = parseFloat(this.realtyAll[i].latitude);
+        const longitude = parseFloat(this.realtyAll[i].longitude);
+        if(latitude > 0 && longitude > 0) {
+          let mark = {}
+          const position = new google.maps.LatLng(latitude, longitude);
+          mark['position'] = position;
+          mark['url'] = hoverMarkerImagePath;
+          mark['size'] = new google.maps.Size(48, 48);
+          mark['origin'] = new google.maps.Point(0, 0);
+          mark['anchor'] = new google.maps.Point(0, 48);
+          mark['title'] = this.realtyAll[i].Title??'';
+          mark['infowindow'] = this.mkitem(this.realtyAll[i]); //"<div>" + res.data.data[i].Title + "/div>"; //new google.maps.InfoWindow({content: "<div>" + res.data.data[i].Title + " wwwww</div>"});
+          markers.push(mark);
+          bounds.extend(position);
+        }
+      }
+      let infoWindow = new google.maps.InfoWindow({
+        content: name
+      });
+      markers.map((m) => {
+        const marker = new google.maps.Marker({
+          position: m.position,
+          icon: m.url,
+          map: map,
+          title: m.title,
+          infowindow: m.infowindow,
+          clickable: true,
+        });
+        marker.addListener("click", ({domEvent, latLng}) => {
+          const {target} = domEvent;
+          infoWindow.close();
+          infoWindow.setContent(marker.infowindow);
+          infoWindow.open(marker.map, marker);
+        });
+      });
+      if (map && bounds) {
+        map.fitBounds(bounds); // fitBounds(bounds);
+      }
+      map.addListener("click", () => {
+        infoWindow.close();
+      });
+    },
+    async initMapAll() {
+      const hoverMarkerImagePath =
+          "https://be.staging.zir.bogatyrev.de/typo3conf/ext/sg_sitepackage/Resources/Public/Assets/Images/gmaps-marker-selected-big.png";
+      let center = null;
+      center = new google.maps.LatLng(
+          parseFloat(51.214906165701436),
+          parseFloat(9.822933589357387)
+      );
+      const bounds = new google.maps.LatLngBounds();
+      //bounds.extend(center);
+      const map = new google.maps.Map(document.getElementById("map"), {
+        center: center,
+        mapTypeControl: false,
+        fullscreenControl: false,
+        showInfoWindow: true,
+        mapId: 'all_acomodations',
+        async: true
+      });
+      let markers = [];
+      await getRealtyAll('').then((res) => {
+        if (res.data.data && res.data.data.length > 0) {
+          for (let i = 0; i < res.data.data.length; i++) {
+            const latitude = parseFloat(res.data.data[i].latitude);
+            const longitude = parseFloat(res.data.data[i].longitude);
+            if (latitude > 0 && longitude > 0) {
+              let mark = {}
+              const position = new google.maps.LatLng(latitude, longitude);
+              mark['position'] = position;
+              mark['url'] = hoverMarkerImagePath;
+              mark['size'] = new google.maps.Size(48, 48);
+              mark['origin'] = new google.maps.Point(0, 0);
+              mark['anchor'] = new google.maps.Point(0, 48);
+              mark['title'] = res.data.data[i].Title;
+              mark['infowindow'] = this.mkitem(res.data.data[i]); //"<div>" + res.data.data[i].Title + "/div>"; //new google.maps.InfoWindow({content: "<div>" + res.data.data[i].Title + " wwwww</div>"});
+              markers.push(mark);
+              bounds.extend(position);
+            }
+          }
+        }
+      });
+      let infoWindow = new google.maps.InfoWindow({
+        content: name
+      });
+      markers.map((m) => {
+        const marker = new google.maps.Marker({
+          position: m.position,
+          icon: m.url,
+          map: map,
+          title: m.title,
+          infowindow: m.infowindow,
+          clickable: true,
+        });
+        marker.addListener("click", ({domEvent, latLng}) => {
+          const {target} = domEvent;
+          infoWindow.close();
+          infoWindow.setContent(marker.infowindow);
+          infoWindow.open(marker.map, marker);
+        });
+      });
+      if (map && bounds) {
+        map.fitBounds(bounds); // fitBounds(bounds);
+      }
+      map.addListener("click", () => {
+        infoWindow.close();
+      });
+    },
+    scrollHandler(event) {
+      const scrollTop = event.target.documentElement.scrollTop;
+      const realtyListHeight = this.$refs.realtyList.clientHeight;
+      const realtyList = this.$refs.realtyList;
+
+      if (
+        realtyList &&
+        realtyListHeight - scrollTop < 500 &&
+        this.page < this.totalPages
+      ) {
+        this.page += 1;
+	this.realtyParted = this.getItemsToShowParted();
+      }
+    },
+    pagination(totalLenght) {
+      if (totalLenght > 0) {
+        const totalPagesCount = Math.ceil(totalLenght / 4);
+        this.$store.commit("counter/changeTotalPages", totalPagesCount);
+        this.totalPages = totalPagesCount;
+      } else {
+        this.totalPages = 0;
+      }
+    },
+    getItemsToShowParted() {
+      return this.realtyAll.slice(0, this.page * 4);
+    },
+  },
+};
+</script>

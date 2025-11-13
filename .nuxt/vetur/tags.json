@@ -1,0 +1,275 @@
+{
+  "T3Form": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3Form/T3Form.vue"
+  },
+  "T3CeFormFormframework": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeFormFormframework/T3CeFormFormframework.vue"
+  },
+  "T3CeFeloginLogin": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeFeloginLogin/T3CeFeloginLogin.vue"
+  },
+  "T3BlDefault": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3BlDefault/T3BlDefault.vue"
+  },
+  "T3CeDefault": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeDefault/T3CeDefault.js"
+  },
+  "T3CeBullets": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeBullets/T3CeBullets.vue"
+  },
+  "T3CeHeader": {
+    "description": "Auto imported from components/contentElements/typo3/T3CeHeader.vue"
+  },
+  "T3CeHtml": {
+    "description": "Auto imported from components/contentElements/typo3/T3CeHtml.vue"
+  },
+  "T3CeDiv": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeDiv/T3CeDiv.vue"
+  },
+  "T3CeImage": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeImage/T3CeImage.vue"
+  },
+  "T3CeMenuAbstract": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeMenuAbstract/T3CeMenuAbstract.vue"
+  },
+  "T3CeMenuCategorizedPages": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeMenuCategorizedPages/T3CeMenuCategorizedPages.vue"
+  },
+  "T3CeMenuPages": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeMenuPages/T3CeMenuPages.vue"
+  },
+  "T3CeMenuPagesList": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeMenuPages/T3CeMenuPagesList.vue"
+  },
+  "T3CeMenuRecentlyUpdated": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeMenuRecentlyUpdated/T3CeMenuRecentlyUpdated.vue"
+  },
+  "T3CeMenuRelatedPages": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeMenuRelatedPages/T3CeMenuRelatedPages.vue"
+  },
+  "T3CeMenuSectionPages": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeMenuSectionPages/T3CeMenuSectionPages.vue"
+  },
+  "T3CeMenuSitemap": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeMenuSitemap/T3CeMenuSitemap.vue"
+  },
+  "T3CeMenuSitemapPages": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeMenuSitemapPages/T3CeMenuSitemapPages.vue"
+  },
+  "T3CeMenuSubpages": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeMenuSubpages/T3CeMenuSubpages.vue"
+  },
+  "T3CeShortcut": {
+    "description": "Auto imported from components/contentElements/typo3/T3CeShortcut.vue"
+  },
+  "T3CeText": {
+    "description": "Auto imported from components/contentElements/typo3/T3CeText.vue"
+  },
+  "T3CeTable": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeTable/T3CeTable.vue"
+  },
+  "T3CeTextmedia": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeTextmedia/T3CeTextmedia.vue"
+  },
+  "T3CeTextpic": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeTextpic/T3CeTextpic.vue"
+  },
+  "T3CeUploads": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3CeUploads/T3CeUploads.vue"
+  },
+  "T3Debug": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3Debug/T3Debug.vue"
+  },
+  "T3Dynamic": {
+    "description": "Auto imported from components/contentElements/typo3/T3Dynamic.js"
+  },
+  "T3Frame": {
+    "description": "Auto imported from components/contentElements/typo3/T3Frame.js"
+  },
+  "T3HtmlParser": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3HtmlParser/T3HtmlParser.vue"
+  },
+  "T3LangSwitcher": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3LangSwitcher/T3LangSwitcher.vue"
+  },
+  "T3MediaFile": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3MediaFile/T3MediaFile.vue"
+  },
+  "T3MediaGallery": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3MediaGallery/T3MediaGallery.vue"
+  },
+  "T3NavLink": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3NavLink/T3NavLink.vue"
+  },
+  "T3Renderer": {
+    "description": "Auto imported from node_modules/nuxt-typo3/lib/components/T3Renderer/T3Renderer.js"
+  },
+  "T3CeBlogAuthorposts": {
+    "description": "Auto imported from components/contentElements/custom/T3CeBlogAuthorposts.vue"
+  },
+  "T3CeBlogCategory": {
+    "description": "Auto imported from components/contentElements/custom/T3CeBlogCategory.vue"
+  },
+  "T3CeBlogPosts": {
+    "description": "Auto imported from components/contentElements/custom/T3CeBlogPosts.vue"
+  },
+  "T3CeCard": {
+    "description": "Auto imported from components/contentElements/custom/T3CeCard.vue"
+  },
+  "T3CeCardslider": {
+    "description": "Auto imported from components/contentElements/custom/T3CeCardslider.vue"
+  },
+  "T3CeCities": {
+    "description": "Auto imported from components/contentElements/custom/T3CeCities.vue"
+  },
+  "T3CeRenderer": {
+    "description": "Auto imported from components/contentElements/custom/T3CeRenderer.vue"
+  },
+  "T3CeSgestatebasePi1": {
+    "description": "Auto imported from components/contentElements/custom/T3CeSgestatebasePi1.vue"
+  },
+  "T3CeSgestatebasePi2": {
+    "description": "Auto imported from components/contentElements/custom/T3CeSgestatebasePi2.vue"
+  },
+  "T3CeSgSitepackageAccordion": {
+    "description": "Auto imported from components/contentElements/custom/T3CeSgSitepackageAccordion.vue"
+  },
+  "T3CeSgSitepackageCardSlider": {
+    "description": "Auto imported from components/contentElements/custom/T3CeSgSitepackageCardSlider.vue"
+  },
+  "T3CeSgSitepackageCta": {
+    "description": "Auto imported from components/contentElements/custom/T3CeSgSitepackageCta.vue"
+  },
+  "T3CeSgSitepackageFeatureCollection": {
+    "description": "Auto imported from components/contentElements/custom/T3CeSgSitepackageFeatureCollection.vue"
+  },
+  "T3CeSgSitepackageHeadlineiconimage": {
+    "description": "Auto imported from components/contentElements/custom/T3CeSgSitepackageHeadlineiconimage.vue"
+  },
+  "T3CeSgSitepackageTeaser": {
+    "description": "Auto imported from components/contentElements/custom/T3CeSgSitepackageTeaser.vue"
+  },
+  "T3CeSgSitepackageTestimonialCollection": {
+    "description": "Auto imported from components/contentElements/custom/T3CeSgSitepackageTestimonialCollection.vue"
+  },
+  "T3CeStructuredContent": {
+    "description": "Auto imported from components/contentElements/custom/T3CeStructuredContent.vue"
+  },
+  "T3CeTeaser": {
+    "description": "Auto imported from components/contentElements/custom/T3CeTeaser.vue"
+  },
+  "T3CeZirestaterealtyCity": {
+    "description": "Auto imported from components/contentElements/custom/T3CeZirestaterealtyCity.vue"
+  },
+  "T3Colpos10": {
+    "description": "Auto imported from components/contentElements/custom/T3Colpos10.vue"
+  },
+  "T3CeShortcut2": {
+    "description": "Auto imported from components/contentElements/typo3/T3CeShortcut2.vue"
+  },
+  "TheAccordion": {
+    "description": "Auto imported from components/UI/TheAccordion.vue"
+  },
+  "TheAutocomplete": {
+    "description": "Auto imported from components/UI/TheAutocomplete.vue"
+  },
+  "ThePopup": {
+    "description": "Auto imported from components/UI/ThePopup.vue"
+  },
+  "ThePreSlider": {
+    "description": "Auto imported from components/UI/ThePreSlider.vue"
+  },
+  "TheSelect": {
+    "description": "Auto imported from components/UI/TheSelect.vue"
+  },
+  "TheSlider": {
+    "description": "Auto imported from components/UI/TheSlider.vue"
+  },
+  "TheSwiper": {
+    "description": "Auto imported from components/UI/TheSwiper.vue"
+  },
+  "SliderMixinsHandlers": {
+    "description": "Auto imported from components/UI/SliderMixins/handlers.js"
+  },
+  "SliderMixinsHelpers": {
+    "description": "Auto imported from components/UI/SliderMixins/helpers.js"
+  },
+  "SliderMixinsMethods": {
+    "description": "Auto imported from components/UI/SliderMixins/methods.js"
+  },
+  "SliderMixinsPreparations": {
+    "description": "Auto imported from components/UI/SliderMixins/preparations.js"
+  },
+  "SliderMixinsSettings": {
+    "description": "Auto imported from components/UI/SliderMixins/settings.js"
+  },
+  "SliderMixinsWatchers": {
+    "description": "Auto imported from components/UI/SliderMixins/watchers.js"
+  },
+  "AllCities": {
+    "description": "Auto imported from components/mixins/allCities.vue"
+  },
+  "BlogPostListBase": {
+    "description": "Auto imported from components/mixins/blogPostListBase.vue"
+  },
+  "BlogSelectImage": {
+    "description": "Auto imported from components/mixins/blogSelectImage.vue"
+  },
+  "Dates": {
+    "description": "Auto imported from components/mixins/dates.vue"
+  },
+  "LayoutBase": {
+    "description": "Auto imported from components/mixins/layoutBase.vue"
+  },
+  "RealtyListBase": {
+    "description": "Auto imported from components/mixins/realtyListBase.vue"
+  },
+  "ApartmentSingle": {
+    "description": "Auto imported from components/apiContent/apartmentSingle.vue"
+  },
+  "City": {
+    "description": "Auto imported from components/apiContent/city.vue"
+  },
+  "EstateCitiesAz": {
+    "description": "Auto imported from components/apiContent/estateCitiesAz.vue"
+  },
+  "EstateGetintouch": {
+    "description": "Auto imported from components/apiContent/estateGetintouch.vue"
+  },
+  "EstateOpenCard": {
+    "description": "Auto imported from components/apiContent/estateOpenCard.vue"
+  },
+  "FlatItem": {
+    "description": "Auto imported from components/apiContent/flatItem.vue"
+  },
+  "FormComponent": {
+    "description": "Auto imported from components/apiContent/formComponent.vue"
+  },
+  "Item": {
+    "description": "Auto imported from components/apiContent/item.vue"
+  },
+  "BlBlogpage": {
+    "description": "Auto imported from components/backendLayouts/BlBlogpage.vue"
+  },
+  "BlBlogpost": {
+    "description": "Auto imported from components/backendLayouts/BlBlogpost.vue"
+  },
+  "BlDefault": {
+    "description": "Auto imported from components/backendLayouts/BlDefault.vue"
+  },
+  "Footer": {
+    "description": "Auto imported from components/Footer.vue"
+  },
+  "HeaderMain": {
+    "description": "Auto imported from components/HeaderMain.vue"
+  },
+  "Newsletter": {
+    "description": "Auto imported from components/Newsletter.vue"
+  },
+  "NoSearchResults": {
+    "description": "Auto imported from components/NoSearchResults.vue"
+  },
+  "PopupPhone": {
+    "description": "Auto imported from components/PopupPhone.vue"
+  }
+}

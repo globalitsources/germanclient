@@ -1,0 +1,81 @@
+h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+  color: $brand-primary !important;
+}
+h2 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: $brand-primary;
+  margin: 0;
+}
+h3 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: $brand-primary;
+  margin: 0;
+}
+h4 {
+  font-size: 1.1rem;
+}
+h5 {
+  font-size: 1rem;
+}
+h6 {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.h3--red {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: $brand-primary;
+}
+
+.h4--red {
+  color: $brand-primary;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.text-black {
+  font-weight: 400;
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+  font-weight: 400;
+  color: $brand-primary;
+}
+
+.text {
+  font-weight: 400;
+  text-align: left;
+  & a {
+    color: $yellow;
+    text-align: left;
+  }
+  & p {
+    color: $gray-900;
+    margin: 0.8rem 0;
+    font-size: 0.9rem;
+  }
+  & div {
+    padding: 0.5rem 1rem;
+  }
+}
+.center {
+  text-align: center;
+}
+
+.t3-ce-header {
+  padding: 1rem;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 800;
+  color: $brand-primary;
+}
+.align--left {
+  text-align: left;
+}
