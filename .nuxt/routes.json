@@ -3,41 +3,35 @@
     "name": "buchungsanfrage",
     "path": "/buchungsanfrage",
     "component": "C:\\\\Users\\\\LENOVO\\\\Desktop\\\\dev (1)\\\\dev\\\\development\\\\pages\\\\buchungsanfrage\\\\index.vue",
-    "chunkName": "pages/buchungsanfrage/index",
-    "_name": "_770df190"
+    "chunkName": "pages/buchungsanfrage/index"
   },
   {
     "name": "buchungsanfrage-vielen-dank-fuer-ihre-anfrage",
     "path": "/buchungsanfrage/vielen-dank-fuer-ihre-anfrage",
     "component": "C:\\\\Users\\\\LENOVO\\\\Desktop\\\\dev (1)\\\\dev\\\\development\\\\pages\\\\buchungsanfrage\\\\vielen-dank-fuer-ihre-anfrage.vue",
-    "chunkName": "pages/buchungsanfrage/vielen-dank-fuer-ihre-anfrage",
-    "_name": "_0ab911f9"
+    "chunkName": "pages/buchungsanfrage/vielen-dank-fuer-ihre-anfrage"
   },
   {
     "name": "monteurzimmer-city",
     "path": "/monteurzimmer/:city",
     "component": "C:\\\\Users\\\\LENOVO\\\\Desktop\\\\dev (1)\\\\dev\\\\development\\\\pages\\\\monteurzimmer\\\\_city\\\\index.vue",
-    "chunkName": "pages/monteurzimmer/_city/index",
-    "_name": "_09656342"
+    "chunkName": "pages/monteurzimmer/_city/index"
   },
   {
     "name": "monteurzimmer-city-indexBAK",
     "path": "/monteurzimmer/:city?/indexBAK",
     "component": "C:\\\\Users\\\\LENOVO\\\\Desktop\\\\dev (1)\\\\dev\\\\development\\\\pages\\\\monteurzimmer\\\\_city\\\\indexBAK.vue",
-    "chunkName": "pages/monteurzimmer/_city/indexBAK",
-    "_name": "_0e57d75d"
+    "chunkName": "pages/monteurzimmer/_city/indexBAK"
   },
   {
     "name": "monteurzimmer-city-id-apartment",
     "path": "/monteurzimmer/:city?/:id/:apartment?",
     "component": "C:\\\\Users\\\\LENOVO\\\\Desktop\\\\dev (1)\\\\dev\\\\development\\\\pages\\\\monteurzimmer\\\\_city\\\\_id\\\\_apartment.vue",
-    "chunkName": "pages/monteurzimmer/_city/_id/_apartment",
-    "_name": "_510419ba"
+    "chunkName": "pages/monteurzimmer/_city/_id/_apartment"
   },
   {
     "name": "page",
     "path": "/*",
-    "component": "C:\\\\Users\\\\LENOVO\\\\Desktop\\\\dev (1)\\\\dev\\\\development\\\\node_modules\\\\nuxt-typo3\\\\lib\\\\pages\\\\_.vue",
-    "_name": "_da8a9848"
+    "component": "C:\\\\Users\\\\LENOVO\\\\Desktop\\\\dev (1)\\\\dev\\\\development\\\\node_modules\\\\nuxt-typo3\\\\lib\\\\pages\\\\_.vue"
   }
 ]

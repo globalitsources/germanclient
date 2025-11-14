@@ -47,9 +47,7 @@ export default {
 <style scoped>
 .newsletter-modern {
   border-radius: 2px;
-  border: 10px solid #ffc107;
   padding: 70px 20px;
-  margin: 80px 90px;
   display: flex;
   align-items: center;
   justify-content: center;
